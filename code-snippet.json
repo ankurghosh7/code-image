@@ -1,0 +1,50 @@
+[
+    {
+        "code": "function isPalindrome(str) {\n    const cleaned = str.replace(/[\\W_]/g, '').toLowerCase();\n    return cleaned === cleaned.split('').reverse().join('');\n}\n\nconsole.log(isPalindrome(\"A man, a plan, a canal: Panama\")); // true",
+        "lang": "javascript"
+    },
+    {
+        "code": "def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        yield a\n        a, b = b, a + b\n\nprint(list(fibonacci(10)))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",
+        "lang": "python"
+    },
+    {
+        "code": "def isPalindrome(s):\n    return s == s[::-1]\n\nprint(isPalindrome(\"A man, a plan, a canal: Panama\"))",
+        "lang": "python"
+    },
+    {
+        "code": "public class Factorial {\n    public static int factorial(int n) {\n        if (n == 0) {\n            return 1;\n        }\n        return n * factorial(n - 1);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(factorial(5));  // Output: 120\n    }\n}",
+        "lang": "java"
+    },
+    {
+        "code": "#include <iostream>\n\nvoid printArray(int arr[], int size) {\n    for (int i = 0; i < size; i++) {\n        std::cout << arr[i] << \" \";\n    }\n    std::cout << std::endl;\n}\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printArray(arr, size);\n    return 0;\n}",
+        "lang": "c++"
+    },
+    {
+        "code": "def reverse_string(str)\n  str.reverse\nend\n\nputs reverse_string(\"Hello, Ruby!\")  # \"!ybuR ,olleH\"",
+        "lang": "ruby"
+    },
+    {
+        "code": "<?php\nfunction isEven($number) {\n    return $number % 2 == 0;\n}\n\necho isEven(10) ? 'Even' : 'Odd';  // Output: Even\n?>",
+        "lang": "php"
+    },
+    {
+        "code": "func greet(name: String) -> String {\n    return \"Hello, \\(name)!\"\n}\n\nprint(greet(name: \"Swift\"))  // Output: Hello, Swift!",
+        "lang": "swift"
+    },
+    {
+        "code": "package main\n\nimport \"fmt\"\n\nfunc factorial(n int) int {\n    if n == 0 {\n        return 1\n    }\n    return n * factorial(n-1)\n}\n\nfunc main() {\n    fmt.Println(factorial(5))  // Output: 120\n}",
+        "lang": "go"
+    },
+    {
+        "code": "interface User {\n    name: string;\n    age: number;\n}\n\nfunction greet(user: User): string {\n    return `Hello, ${user.name}. You are ${user.age} years old.`;\n}\n\nconst user: User = { name: \"Alice\", age: 25 };\nconsole.log(greet(user));  // Output: Hello, Alice. You are 25 years old.",
+        "lang": "typescript"
+    },
+    {
+        "code": "fun isPrime(num: Int): Boolean {\n    if (num <= 1) return false\n    for (i in 2..num / 2) {\n        if (num % i == 0) return false\n    }\n    return true\n}\n\nfun main() {\n    println(isPrime(7))  // Output: true\n}",
+        "lang": "kotlin"
+    },
+    {
+        "code": "fn factorial(n: u32) -> u32 {\n    match n {\n        0 => 1,\n        _ => n * factorial(n - 1),\n    }\n}\n\nfn main() {\n    println!(\"Factorial of 6 is: {}\", factorial(6));  // Output: 720\n}",
+        "lang": "rust"
+    }
+]
