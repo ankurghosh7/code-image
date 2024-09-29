@@ -9,7 +9,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <header className="w-full xl:px-20 ">
-      <div className="border-b h-16 grid grid-cols-[100px_1fr_100px] items-center">
+      <div className=" h-16 grid grid-cols-[100px_1fr_100px] items-center">
         <Link href="/">Code Image</Link>
         <nav>
           <ul className="w-full flex items-center justify-center gap-8"></ul>

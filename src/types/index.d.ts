@@ -9,3 +9,9 @@ export interface ThemeProps {
   deg: number;
   default?: boolean;
 }
+
+export interface SizeProps {
+  name: string;
+  width: number;
+  height: number;
+}

@@ -63,3 +63,12 @@ export const sizes = [
 ];
 
 export const tabs = [2, 4, 6];
+
+export const paddings = [15, 25, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80];
+export const defaultPadding = 45;
+
+export const defaultMode = "dark";
+
+export const defaultTab = 2;
+
+export const defaultSize = "16:9";

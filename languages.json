@@ -68,6 +68,10 @@
         "value": "c"
     },
     {
+        "label": "Cpp",
+        "value": "cpp"
+    },
+    {
         "label": "CMake",
         "value": "cmake"
     },

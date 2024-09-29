@@ -1,18 +1,24 @@
 "use client";
-import { useImageBoxSettings } from "@/providers/imagebox-settings";
+import { useCodeImage } from "@/providers/code-image";
 import { cn } from "@/utils/cn";
 import { filterColor } from "@/utils/theme";
 import React from "react";
-import HljsCodeBox from "./HljsCodeBox";
+import CodeBox from "./CodeBox";
 
-const ImageBox = ({
-  defaultCode,
-}: {
-  defaultCode: string;
-  language: string;
-}) => {
-  const { theme, padding, mode, language: la, tabs } = useImageBoxSettings();
-  const [editorVlaue, setEditorValue] = React.useState(defaultCode);
+const ImageBox = () => {
+  const {
+    theme,
+    padding,
+    mode,
+    language: la,
+    tab,
+    defaultValues,
+    canvasRef,
+  } = useCodeImage();
+  const [editorVlaue, setEditorValue] = React.useState(
+    defaultValues.defaultCode
+  );
+
   return (
     <div
       className={cn("rounded-lg h-auto w-[520px]", {})}
@@ -20,12 +26,16 @@ const ImageBox = ({
         background: filterColor(theme.color, theme.deg),
         padding: `${padding}px`,
       }}
+      ref={canvasRef}
     >
       <div
-        className={cn("w-full rounded-lg p-4 space-y-3 shadow-md min-h-32 ", {
-          "bg-black/70 ": mode === "dark",
-          "bg-white/80": mode === "light",
-        })}
+        className={cn(
+          "w-full rounded-lg p-4 space-y-3 shadow-2xl shadow-zinc-900/50 min-h-32  ",
+          {
+            "bg-black/70 ": mode === "dark",
+            "bg-white/80": mode === "light",
+          }
+        )}
       >
         <div className="grid grid-cols-[50px_1fr_50px]">
           <div className="flex items-center justify-center gap-2">
@@ -39,12 +49,11 @@ const ImageBox = ({
           />
         </div>
 
-        {/* code box */}
-        <HljsCodeBox
+        <CodeBox
           code={editorVlaue}
           language={la.value}
           setEditorValue={setEditorValue}
-          tab={tabs}
+          tab={tab}
           mode={mode}
         />
       </div>

@@ -66,6 +66,7 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-wasm";
 import "prismjs/components/prism-yaml";
+import "prismjs/components/prism-cpp";
 import "prismjs/themes/prism-twilight.css";
 
 //Example style, you can use another
