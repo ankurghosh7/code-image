@@ -43,6 +43,7 @@ interface CodeImageContextProps {
   changeLanguage: (language: string) => void;
   chnageTab: (tab: string) => void;
   changeSize: (size: string) => void;
+  setDefaultCode: React.Dispatch<React.SetStateAction<string>>;
   canvasRef: RefObject<HTMLDivElement>;
   CaptureImage(): void;
 }
@@ -86,7 +87,7 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
   );
   const [size, setSize] = useState<SizeProps>(sizes[0]);
   const [tab, setTab] = useState<number>(defaultTab);
-  const [defaultCode] = useState<string>(code.code);
+  const [defaultCode, setDefaultCode] = useState<string>(code.code);
 
   const changeTheme = (theme: string) => {
     if (theme === defaultTheme.name) {
@@ -202,6 +203,7 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
           defaultCode,
           defaultLanguage: code.lang,
         },
+        setDefaultCode,
         tab,
         chnageTab,
         theme,
