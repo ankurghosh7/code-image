@@ -2,8 +2,9 @@ import React from "react";
 import Editor from "react-simple-code-editor";
 import hljs from "highlight.js";
 import "highlight.js/styles/github.css";
+import { formatCodeWithTabSize } from "@/utils/format-code";
 // import "highlight.js/styles/atom-one-dark.css";
-const HljsCodeBox = ({
+const CodeBox = ({
   code,
   language,
   setEditorValue,
@@ -17,10 +18,11 @@ const HljsCodeBox = ({
   mode: "dark" | "light";
 }) => {
   const textColor = mode === "dark" ? "text-white" : "text-black";
+  const codeWithTab = formatCodeWithTabSize(code, tab);
   return (
-    <div>
+    <>
       <Editor
-        value={code}
+        value={codeWithTab}
         onValueChange={(code) => setEditorValue(code)}
         highlight={(code) =>
           hljs.highlight(code, {
@@ -28,12 +30,13 @@ const HljsCodeBox = ({
             ignoreIllegals: true,
           }).value
         }
-        textareaClassName="focus:outline-none"
+        textareaClassName="focus:outline-none code-text"
         preClassName={textColor}
         tabSize={tab}
+        insertSpaces
       />
-    </div>
+    </>
   );
 };
 
-export default HljsCodeBox;
+export default CodeBox;

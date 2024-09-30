@@ -1,18 +1,9 @@
-"use client";
 import ImageBox from "@/components/ImageBox";
 import ImageBoxControls from "@/components/ImageBoxControls";
-import { ImageBoxSettingsProvider } from "@/providers/imagebox-settings";
-import GetCode from "@/utils/chose-random-code-snippet";
-import React, { Suspense, useMemo } from "react";
+import { CodeImageProvider } from "@/providers/code-image";
+import React, { Suspense } from "react";
 
 export default function Home() {
-  const defaultCode = useMemo(() => {
-    const code = GetCode();
-    return {
-      code: code.code,
-      lang: code.lang,
-    };
-  }, []);
   return (
     <Suspense
       fallback={
@@ -21,21 +12,14 @@ export default function Home() {
         </div>
       }
     >
-      <ImageBoxSettingsProvider>
-        <div className="w-full space-y-4">
-          {/* box nav */}
-          <div className="w-fit mx-auto ">
-            <ImageBoxControls defaultLean={defaultCode.lang} />
-          </div>
-          {/* image box */}
-          <div className="w-fit mx-auto ">
-            <ImageBox
-              defaultCode={defaultCode.code}
-              language={defaultCode.lang}
-            />
+      <CodeImageProvider>
+        <ImageBoxControls />
+        <div className="w-full space-y-4 mt-14 bg-transparent">
+          <div className="flex justify-center bg-transparent relative">
+            <ImageBox />
           </div>
         </div>
-      </ImageBoxSettingsProvider>
+      </CodeImageProvider>
     </Suspense>
   );
 }

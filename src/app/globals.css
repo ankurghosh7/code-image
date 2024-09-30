@@ -62,13 +62,13 @@ body {
     @apply text-sm text-zinc-700 dark:text-zinc-400 font-semibold mb-2 tracking-wide;
   }
   .checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle:before {
-    background: #52d66b;
+    background: #6652d6;
   }
   .checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span {
     transform: translateX(18px);
   }
   .checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span path {
-    stroke: #52d66b;
+    stroke: #d65252;
     stroke-dasharray: 25;
     stroke-dashoffset: 25;
   }
