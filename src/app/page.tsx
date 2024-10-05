@@ -14,7 +14,7 @@ export default function Home() {
     >
       <CodeImageProvider>
         <ImageBoxControls />
-        <div className="w-full space-y-4 mt-14 bg-transparent">
+        <div className="w-full space-y-4 mt-14 bg-transparent sm:min-h-[calc(100vh-3rem)]">
           <div className="flex justify-center bg-transparent relative">
             <ImageBox />
           </div>

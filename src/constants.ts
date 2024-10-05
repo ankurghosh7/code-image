@@ -1,3 +1,5 @@
+import { FaInstagram, FaXTwitter } from "react-icons/fa6";
+
 export const sizes = [
   {
     name: "9:16",
@@ -72,3 +74,17 @@ export const defaultMode = "dark";
 export const defaultTab = 2;
 
 export const defaultSize = "16:9";
+
+export const defaultLogos = [
+  {
+    name: "instagram",
+    icon: FaInstagram,
+  },
+
+  {
+    name: "twitter",
+    icon: FaXTwitter,
+  },
+];
+
+export const defaultBrandTagPosition = "right";

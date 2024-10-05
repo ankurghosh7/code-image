@@ -30,7 +30,7 @@ const CodeBox = ({
             ignoreIllegals: true,
           }).value
         }
-        textareaClassName="focus:outline-none code-text"
+        textareaClassName="focus:outline-none code-text select-text"
         preClassName={textColor}
         tabSize={tab}
         insertSpaces

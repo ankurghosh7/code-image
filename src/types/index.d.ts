@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 export interface LenguageProps {
   label: string;
   value: string;
@@ -15,3 +17,10 @@ export interface SizeProps {
   width: number;
   height: number;
 }
+
+export interface LogoType {
+  name: string;
+  icon: IconType;
+}
+
+export type BrandTabPosition = "left" | "right" | "center";

@@ -1,6 +1,11 @@
 "use client";
 
-import { LenguageProps, SizeProps, ThemeProps } from "@/types";
+import {
+  BrandTabPosition,
+  LenguageProps,
+  SizeProps,
+  ThemeProps,
+} from "@/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   createContext,
@@ -14,7 +19,12 @@ import {
 import themes from "../../default-theme.json";
 import { findTheme } from "@/utils/theme";
 import { findLanguage, findSize } from "@/utils/language";
-import { defaultMode, defaultPadding, defaultTab } from "@/constants";
+import {
+  defaultBrandTagPosition,
+  defaultMode,
+  defaultPadding,
+  defaultTab,
+} from "@/constants";
 import GetCode from "@/utils/chose-random-code-snippet";
 import { removeParams, setToUrl } from "@/utils/params";
 import createUrl from "@/utils/create-url";
@@ -46,6 +56,10 @@ interface CodeImageContextProps {
   setDefaultCode: React.Dispatch<React.SetStateAction<string>>;
   canvasRef: RefObject<HTMLDivElement>;
   CaptureImage(): void;
+  showBrandTag: boolean;
+  ToggleShowBrandTag(tag: boolean): void;
+  brandTabPosition: BrandTabPosition;
+  changeBrandTagPosition(position: BrandTabPosition): void;
 }
 
 interface CodeImageProviderProps {
@@ -88,7 +102,10 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
   const [size, setSize] = useState<SizeProps>(sizes[0]);
   const [tab, setTab] = useState<number>(defaultTab);
   const [defaultCode, setDefaultCode] = useState<string>(code.code);
-
+  const [showBrandTag, setShowBrandTag] = useState<boolean>(true);
+  const [brandTabPosition, setBrandTabPosition] = useState<BrandTabPosition>(
+    defaultBrandTagPosition
+  );
   const changeTheme = (theme: string) => {
     if (theme === defaultTheme.name) {
       setTheme(findTheme(theme));
@@ -165,6 +182,31 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
     link.download = "code-snippet.png";
     link.click();
   }
+  function ToggleShowBrandTag(tag: boolean) {
+    if (tag) {
+      setShowBrandTag(true);
+      removeParams("bt", SetSearchParams);
+    } else {
+      setToUrl("bt", "false", SetSearchParams);
+      setShowBrandTag(false);
+    }
+    router.push(createUrl(pathname, SetSearchParams), {
+      scroll: false,
+    });
+  }
+
+  function changeBrandTagPosition(position: BrandTabPosition) {
+    if (position === defaultBrandTagPosition) {
+      setBrandTabPosition(defaultBrandTagPosition);
+      removeParams("btp", SetSearchParams);
+    } else {
+      setToUrl("btp", position, SetSearchParams);
+      setBrandTabPosition(position);
+    }
+    router.push(createUrl(pathname, SetSearchParams), {
+      scroll: false,
+    });
+  }
   useEffect(() => {
     const urlTheme = searchParams.get("t");
     const urlPadding = searchParams.get("p");
@@ -172,6 +214,8 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
     const urlTab = searchParams.get("tb");
     const urlSize = searchParams.get("s");
     const urlLanguage = searchParams.get("la");
+    const urlShowBrandTab = searchParams.get("bt");
+    const urlBrandTagPosition = searchParams.get("btp");
     if (urlTheme) {
       setTheme(findTheme(urlTheme));
     }
@@ -189,6 +233,12 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
     }
     if (urlLanguage) {
       setLanguage(findLanguage(urlLanguage));
+    }
+    if (urlShowBrandTab) {
+      setShowBrandTag(false);
+    }
+    if (urlBrandTagPosition) {
+      setBrandTabPosition(urlBrandTagPosition as BrandTabPosition);
     }
   }, [searchParams]);
 
@@ -218,6 +268,10 @@ export function CodeImageProvider({ children }: CodeImageProviderProps) {
         CaptureImage,
         size,
         changeSize,
+        showBrandTag,
+        ToggleShowBrandTag,
+        brandTabPosition,
+        changeBrandTagPosition,
       }}
     >
       {children}
