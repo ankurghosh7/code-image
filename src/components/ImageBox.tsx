@@ -1,27 +1,26 @@
 "use client";
-import { useCodeImage } from "@/providers/code-image";
+import { useCodeBox } from "@/providers/code-box";
 import { cn } from "@/utils/cn";
 import { filterColor } from "@/utils/theme";
 import React, { useEffect, useState } from "react";
 import CodeBox from "./CodeBox";
 
 import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
-import BrandPopover from "./ui/popover";
+import BrandPopover from "./ui/brand-popover";
+import { useImageBox } from "@/providers/image-box";
+import CodeBoxHeader from "./ui/code-box-header";
 
 const ImageBox = () => {
   const {
-    theme,
-    padding,
     mode,
     language: la,
     tab,
     defaultValues,
-    canvasRef,
     setDefaultCode,
-    showBrandTag,
-    brandTabPosition,
-  } = useCodeImage();
-
+    backgroundOpacity,
+  } = useCodeBox();
+  const { canvasRef, theme, padding, watermark, watermarkPosition } =
+    useImageBox();
   const MIN_WIDTH = 520;
   const MAX_WIDTH = 920;
 
@@ -87,14 +86,19 @@ const ImageBox = () => {
   }, [isDragging, dragDirection]);
 
   return (
-    <div className="resizable-box relative select-none">
+    <div
+      className="resizable-box relative select-none drop-shadow-[0_25px_25px_rgba(0,0,0,0.25)]"
+      style={{
+        filter: `drop-shadow(0 20px 25px ${theme.dropColor}40)`,
+      }}
+    >
       <LeftResizeBtn onMouseDown={() => handleMouseDown("left")} />
 
       <RightResizeBtn onMouseDown={() => handleMouseDown("right")} />
 
       <div
         className={cn(
-          "rounded-lg h-auto min-w-[520px] max-w-[920px] relative",
+          "rounded-lg h-auto min-w-[520px] max-w-[920px] relative ",
           {}
         )}
         style={{
@@ -106,46 +110,37 @@ const ImageBox = () => {
       >
         <div
           className={cn(
-            "w-full rounded-lg p-4 space-y-3 shadow-2xl shadow-zinc-900/50 min-h-32 select-none ",
-            {
-              "bg-black/70 ": mode === "dark",
-              "bg-white/80": mode === "light",
-            }
+            "w-full rounded-lg p-4 shadow-2xl shadow-zinc-900/50 min-h-32 select-none relative overflow-hidden"
           )}
+          style={{
+            backgroundColor:
+              mode === "dark"
+                ? `rgba(0, 0, 0, ${backgroundOpacity / 100})`
+                : `rgba(255, 225, 255, ${backgroundOpacity / 100})`,
+          }}
         >
-          <div className="grid grid-cols-[50px_1fr_50px] ">
-            <div className="flex items-center justify-center gap-2">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="size-3 rounded-full bg-zinc-600/80"
-                ></div>
-              ))}
-            </div>
-            <input
-              placeholder="Untitled"
-              className="w-full border-none text-center placeholder:text-center focus:outline-none bg-transparent text-sm"
+          <div className="w-full h-full relative z-10 space-y-2">
+            <CodeBoxHeader />
+
+            <CodeBox
+              code={defaultValues.defaultCode}
+              language={la.value}
+              setEditorValue={setDefaultCode}
+              tab={tab}
+              mode={mode}
             />
           </div>
-
-          <CodeBox
-            code={defaultValues.defaultCode}
-            language={la.value}
-            setEditorValue={setDefaultCode}
-            tab={tab}
-            mode={mode}
-          />
         </div>
         <div
           className={cn("flex w-full absolute bottom-3 left-0 px-5", {
-            "justify-center": brandTabPosition === "center",
-            "justify-end": brandTabPosition === "right",
-            "justify-start": brandTabPosition === "left",
+            "justify-center": watermarkPosition === "center",
+            "justify-end": watermarkPosition === "right",
+            "justify-start": watermarkPosition === "left",
           })}
         >
           <div
             className={cn("flex gap-[2px] items-stretch min-w-20 max-w-full", {
-              "hidden invisible opacity-0": !showBrandTag,
+              "hidden invisible opacity-0": !watermark,
             })}
           >
             <BrandPopover />

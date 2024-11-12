@@ -88,3 +88,22 @@ export const defaultLogos = [
 ];
 
 export const defaultBrandTagPosition = "right";
+
+export const controlThemes = [
+  {
+    name: "mac",
+    imageUrl: "/images/mac.png",
+  },
+  {
+    name: "fill",
+    imageUrl: "/images/fill.png",
+  },
+  {
+    name: "outline",
+    imageUrl: "/images/outline.png",
+  },
+  {
+    name: "outline fill",
+    imageUrl: "/images/outline-fill.png",
+  },
+];

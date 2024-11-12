@@ -1,9 +1,9 @@
 import React from "react";
 import Editor from "react-simple-code-editor";
 import hljs from "highlight.js";
-import "highlight.js/styles/github.css";
+// import "@/styles/code-highlight.css";
 import { formatCodeWithTabSize } from "@/utils/format-code";
-// import "highlight.js/styles/atom-one-dark.css";
+import "highlight.js/styles/gradient-dark.css";
 const CodeBox = ({
   code,
   language,
@@ -19,6 +19,7 @@ const CodeBox = ({
 }) => {
   const textColor = mode === "dark" ? "text-white" : "text-black";
   const codeWithTab = formatCodeWithTabSize(code, tab);
+
   return (
     <>
       <Editor

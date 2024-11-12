@@ -10,6 +10,7 @@ export interface ThemeProps {
   color: string[];
   deg: number;
   default?: boolean;
+  dropColor: string;
 }
 
 export interface SizeProps {
@@ -23,4 +24,4 @@ export interface LogoType {
   icon: IconType;
 }
 
-export type BrandTabPosition = "left" | "right" | "center";
+export type WatermarkPosition = "left" | "right" | "center";
