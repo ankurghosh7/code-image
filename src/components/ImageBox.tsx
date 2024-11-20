@@ -9,7 +9,7 @@ import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
 import BrandPopover from "./ui/brand-popover";
 import { useImageBox } from "@/providers/image-box";
 import CodeBoxHeader from "./ui/code-box-header";
-
+import "@/styles/image-box.css";
 const ImageBox = () => {
   const {
     mode,
@@ -110,7 +110,7 @@ const ImageBox = () => {
       >
         <div
           className={cn(
-            "w-full rounded-lg p-4 shadow-2xl shadow-zinc-900/50 min-h-32 select-none relative overflow-hidden"
+            "codebox w-full rounded-lg p-4 shadow-2xl shadow-zinc-900/50 min-h-32 select-none relative overflow-hidden"
           )}
           style={{
             backgroundColor:
@@ -118,6 +118,7 @@ const ImageBox = () => {
                 ? `rgba(0, 0, 0, ${backgroundOpacity / 100})`
                 : `rgba(255, 225, 255, ${backgroundOpacity / 100})`,
           }}
+          data-mode={mode}
         >
           <div className="w-full h-full relative z-10 space-y-2">
             <CodeBoxHeader />
@@ -139,7 +140,7 @@ const ImageBox = () => {
           })}
         >
           <div
-            className={cn("flex gap-[2px] items-stretch min-w-20 max-w-full", {
+            className={cn("flex gap-[2px] items-stretch min-w-24 max-w-full", {
               "hidden invisible opacity-0": !watermark,
             })}
           >
@@ -147,7 +148,7 @@ const ImageBox = () => {
             <input
               id="brandInput"
               className="flex-1 bg-transparent border-none outline-none focus:outline-none text-sm min-w-0  text-black placeholder:text-black font-medium transition-all duration-300 ease-in-out"
-              placeholder="Brand table"
+              placeholder="watermark"
               value={inputBrandTagValue}
               style={{ width: inputWidth }}
               onChange={(e) => setInputBrandTagValue(e.target.value)}

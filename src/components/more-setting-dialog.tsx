@@ -46,7 +46,7 @@ const MoreSettingDialog = () => {
             <IoSettingsSharp className="size-5" />
           </p>
           {/* window contorls theme */}
-          <div className="bg-zinc-800 p-2 rounded-md space-y-2">
+          <div className="bg-gray-400 dark:bg-zinc-800 p-2 rounded-md space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm pb-1">Controls Theme</p>
               <div className="checkbox-wrapper-51">
@@ -85,12 +85,12 @@ const MoreSettingDialog = () => {
             />
           </div>
           {/* text tab */}
-          <div className="flex items-start justify-between bg-zinc-800 p-2 rounded-md">
+          <div className="flex items-start justify-between bg-gray-400 dark:bg-zinc-800 p-2 rounded-md">
             <p className="text-sm pb-1 pt-2">Text Tab</p>
             <FormatTabs />
           </div>
           {/* code box title */}
-          <div className="flex items-start justify-between bg-zinc-800 p-2 rounded-md">
+          <div className="flex items-start justify-between bg-gray-400 dark:bg-zinc-800 p-2 rounded-md">
             <p className="text-sm pb-1 pt-2">Title</p>
             <div className="checkbox-wrapper-51">
               <input
@@ -123,7 +123,7 @@ const MoreSettingDialog = () => {
             </div>
           </div>
           {/* watermark */}
-          <div className="space-y-2 bg-zinc-800 p-2 rounded-md">
+          <div className="space-y-2 bg-gray-400 dark:bg-zinc-800 p-2 rounded-md">
             <div className="flex items-center justify-between">
               <p className="text-sm pb-1 pt-2">Watermark</p>
               <BrandTagSwticher />
@@ -134,7 +134,7 @@ const MoreSettingDialog = () => {
             </div>
           </div>
           {/*  code box background */}
-          <div className="flex flex-col items-start justify-between bg-zinc-800 px-2 pt-2 pb-4 rounded-md gap-2">
+          <div className="flex flex-col items-start justify-between bg-gray-400 dark:bg-zinc-800 px-2 pt-2 pb-4 rounded-md gap-2">
             <p className="text-sm pb-1 pt-2">Bcakgound Opacity</p>
             <Slider
               defaultValue={[backgroundOpacity]}

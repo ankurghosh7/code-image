@@ -3,13 +3,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="text-center text-sm text-muted-foreground min-h-16 w-full bg-gray-400 dark:bg-zinc-800 flex justify-end items-center xl:px-20 font-medium">
+    <footer className="text-center text-sm text-muted-foreground min-h-16 w-full bg-gray-400 text-black dark:text-white dark:bg-zinc-800 flex justify-end items-center xl:px-20 font-medium">
       <div>
-        <p>
+        <p className="text-black dark:text-white">
           Copyright © {new Date().getFullYear()} - All right reserved by{" "}
           <Link
             href={"https://www.ankurghosh.xyz/copy-right"}
-            className="underline underline-offset-1 hover:text-blue-600 transition-colors duration-300"
+            className="underline underline-offset-1 text-blue-500 transition-colors duration-300"
             target="_blank"
           >
             Ankur Ghosh

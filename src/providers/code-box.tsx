@@ -162,8 +162,8 @@ export function CodeBoxProvider({ children }: CodeImageProviderProps) {
       setBackgroundOpacity(75);
       removeParams("bo", SetSearchParams);
     } else {
+      setBackgroundOpacity(value);
       setToUrl("bo", value.toString(), SetSearchParams);
-      setShowBoxTitle(false);
     }
     router.push(createUrl(pathname, SetSearchParams), {
       scroll: false,

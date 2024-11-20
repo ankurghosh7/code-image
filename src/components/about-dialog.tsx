@@ -2,7 +2,7 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -20,12 +20,28 @@ const AboutDialog = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
+          <DialogTitle>About</DialogTitle>
+          {/* <DialogDescription></DialogDescription> */}
         </DialogHeader>
+        <div>
+          <p className="text-center font-medium text-lg">
+            Working on feature and shortcut keys
+          </p>
+        </div>
+        <DialogFooter>
+          <div className="mt-3 flex items-center justify-center">
+            <p className="text-sm">
+              Want more features? or{" "}
+              <a
+                href="#"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+              >
+                Repot a bug!
+              </a>
+            </p>
+          </div>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
