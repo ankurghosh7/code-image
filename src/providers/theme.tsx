@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   // get local theme
   const ISSERVER = typeof window === "undefined";
 
-  // set theme
+  // theme state
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   const toggleTheme = () => {
@@ -38,15 +38,20 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
         setTheme(localTheme as "light" | "dark");
       } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         setTheme("dark");
+      } else {
+        setTheme("light");
       }
     }
   }, [ISSERVER]);
 
   useEffect(() => {
     if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.classList.add("dark");
       if (!ISSERVER) localStorage.setItem("theme", "dark");
     } else {
+      document.documentElement.setAttribute("data-theme", theme);
+
       document.documentElement.classList.remove("dark");
       if (!ISSERVER) localStorage.setItem("theme", "light");
     }

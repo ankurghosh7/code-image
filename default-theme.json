@@ -7,7 +7,8 @@
         ],
         "deg": 45,
         "name": "blue",
-        "default": true
+        "default": true,
+        "dropColor": "#4158D0"
     },
     {
         "color": [
@@ -15,7 +16,8 @@
             "#80D0C7"
         ],
         "deg": 160,
-        "name": "sky"
+        "name": "sky",
+        "dropColor": "#0093E9"
     },
     {
         "color": [
@@ -23,7 +25,8 @@
             "#FFFB7D"
         ],
         "deg": 45,
-        "name": "Lemon Gate"
+        "name": "Lemon Gate",
+        "dropColor": "#85FFBD"
     },
     {
         "color": [
@@ -31,7 +34,8 @@
             "#F7CE68"
         ],
         "deg": 62,
-        "name": "orange"
+        "name": "orange",
+        "dropColor": "#FBAB7E"
     },
     {
         "color": [
@@ -39,6 +43,7 @@
             "#2AF598"
         ],
         "deg": 45,
-        "name": "Itmeo Branding"
+        "name": "Itmeo Branding",
+        "dropColor": "#08AEEA"
     }
 ]
