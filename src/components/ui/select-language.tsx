@@ -1,4 +1,4 @@
-import { useCodeBox } from "@/providers/code-box";
+import { useCodeBox } from "@/services/code-editor.provider";
 import React from "react";
 import {
   Select,

@@ -11,9 +11,10 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 const SelectTheme = () => {
   const { theme, changeTheme } = useImageBox();
+  console.log("theme", theme);
   return (
     <Select onValueChange={changeTheme} defaultValue={theme.name}>
       <SelectTrigger className="control-trigger group min-w-32 duration-300 [&:nth-child(2)]:[&_span]:data-[state=open]:-translate-x-40">
@@ -52,9 +53,21 @@ const SelectTheme = () => {
             </SelectItem>
           );
         })}
+        <SelectItem
+          key={"custom"}
+          value={"custom"}
+          defaultValue="custom"
+          className=""
+        >
+          <div className="w-full flex flex-row gap-2 capitalize">Custom</div>
+        </SelectItem>
       </SelectContent>
     </Select>
   );
 };
 
 export default SelectTheme;
+
+// function CustomThemePopup() {
+//   return <div></div>;
+// }

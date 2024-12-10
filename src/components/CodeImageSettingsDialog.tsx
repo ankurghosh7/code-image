@@ -11,7 +11,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import ControlThemeRadio from "./ui/control-theme-radio";
 import FormatTabs from "./ui/editor-tabs";
 import { BrandTagSwticher, SelectBrandTagPosition } from "./ui/watermark";
-import { useCodeBox } from "@/providers/code-box";
+import { useCodeBox } from "@/services/code-editor.provider";
 import { Slider } from "@/components/ui/range";
 
 const MoreSettingDialog = () => {
@@ -30,7 +30,7 @@ const MoreSettingDialog = () => {
     <Popover>
       <PopoverTrigger asChild>
         <button
-          className="control-trigger flex justify-center items-center gap-2 group [&:nth-child(3)]:[&_span]:data-[state=open]:-translate-x-24"
+          className="control-trigger flex justify-center items-center gap-2 group [&:nth-child(3)]:[&_span]:data-[state=open]:-translate-x-24 shrink-0"
           aria-label="Settings"
         >
           <span className="text-sm">More</span>

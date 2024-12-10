@@ -1,15 +1,17 @@
 "use client";
-import { useCodeBox } from "@/providers/code-box";
+import { useCodeBox } from "@/services/code-editor.provider";
 import { cn } from "@/utils/cn";
 import { filterColor } from "@/utils/theme";
 import React, { useEffect, useState } from "react";
-import CodeBox from "./CodeBox";
+import CodeBox from "./CodeEditor";
 
 import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
 import BrandPopover from "./ui/brand-popover";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 import CodeBoxHeader from "./ui/code-box-header";
 import "@/styles/image-box.css";
+import { useMediaQuery } from "@mantine/hooks";
+
 const ImageBox = () => {
   const {
     mode,
@@ -19,9 +21,13 @@ const ImageBox = () => {
     setDefaultCode,
     backgroundOpacity,
   } = useCodeBox();
+
   const { canvasRef, theme, padding, watermark, watermarkPosition } =
     useImageBox();
-  const MIN_WIDTH = 520;
+  const isMobile = useMediaQuery("(max-width: 768px)", true, {
+    getInitialValueInEffect: false,
+  });
+  const MIN_WIDTH = isMobile ? 100 : 520;
   const MAX_WIDTH = 920;
 
   const [width, setWidth] = useState(MIN_WIDTH); // Initial width
@@ -98,7 +104,7 @@ const ImageBox = () => {
 
       <div
         className={cn(
-          "rounded-lg h-auto min-w-[520px] max-w-[920px] relative ",
+          "rounded-lg h-auto min-w-full md:min-w-[520px] max-w-[920px] relative ",
           {}
         )}
         style={{

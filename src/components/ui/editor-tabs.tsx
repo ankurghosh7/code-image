@@ -1,5 +1,5 @@
 import React from "react";
-import { useCodeBox } from "@/providers/code-box";
+import { useCodeBox } from "@/services/code-editor.provider";
 import * as Tabs from "@radix-ui/react-tabs";
 import { tabs as tabsList } from "@/constants";
 

@@ -58,10 +58,10 @@ body {
     text-wrap: balance;
   }
   .options-label {
-    @apply text-xs text-zinc-700 dark:text-zinc-400 font-semibold tracking-wide text-nowrap;
+    @apply hidden md:block text-xs text-zinc-700 dark:text-zinc-400 font-semibold tracking-wide text-nowrap;
   }
   .options-label-weapper {
-    @apply grid grid-rows-2 flex-col items-start justify-between w-fit h-14;
+    @apply grid md:grid-rows-2 flex-col items-start justify-between w-fit md:h-14 shrink-0;
   }
   .checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle:before {
     background: #6652d6;

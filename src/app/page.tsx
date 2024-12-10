@@ -1,8 +1,9 @@
-import ImageBox from "@/components/ImageBox";
-import ImageBoxControls from "@/components/ImageBoxControls";
-import { CodeBoxProvider } from "@/providers/code-box";
-import { ImageBoxProvider } from "@/providers/image-box";
 import React, { Suspense } from "react";
+import ImageBox from "@/components/CodeImage";
+import ImageBoxControls from "@/components/CodeImageToolbar";
+import { CodeBoxProvider } from "@/services/code-editor.provider";
+import { ImageBoxProvider } from "@/services/code-image.provider";
+import CustomThemePopup from "@/components/ui/custom-theme-popup";
 
 export default function Home() {
   return (
@@ -16,11 +17,28 @@ export default function Home() {
       <ImageBoxProvider>
         <CodeBoxProvider>
           <ImageBoxControls />
-          <div className="w-full space-y-4 mt-14 bg-transparent sm:min-h-[calc(100vh-3rem)]">
-            <div className="flex justify-center bg-transparent relative">
-              <ImageBox />
+          {/* <div className="w-full space-y-4 mt-14 bg-transparent min-h-[calc(100vh-3rem)]">
+            <div className="flex justify-start md:justify-center bg-transparent relative">
+              <Suspense
+                fallback={
+                  <div>
+                    <h1>Loading...</h1>
+                  </div>
+                }
+              >
+                <ImageBox />
+              </Suspense>
             </div>
-          </div>
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <CustomThemePopup />
+            </Suspense>
+          </div> */}
         </CodeBoxProvider>
       </ImageBoxProvider>
     </Suspense>

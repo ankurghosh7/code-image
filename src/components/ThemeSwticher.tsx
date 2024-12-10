@@ -13,7 +13,9 @@ const ThemeSwticher = () => {
     <>
       <button
         onClick={toggleTheme}
-        className={cn("w-fit p-2 rounded-full dark:bg-zinc-600 bg-zinc-300")}
+        className={cn(
+          "w-fit p-2 rounded-full dark:bg-zinc-600 bg-zinc-300 text-xs sm:text-sm md:text-base"
+        )}
       >
         {theme === "light" ? <IoMoon /> : <IoSunny />}
       </button>
