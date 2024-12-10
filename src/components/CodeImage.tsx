@@ -1,13 +1,13 @@
 "use client";
-import { useCodeBox } from "@/providers/code-box";
+import { useCodeBox } from "@/services/code-editor.provider";
 import { cn } from "@/utils/cn";
 import { filterColor } from "@/utils/theme";
 import React, { useEffect, useState } from "react";
-import CodeBox from "./CodeBox";
+import CodeBox from "./CodeEditor";
 
 import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
 import BrandPopover from "./ui/brand-popover";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 import CodeBoxHeader from "./ui/code-box-header";
 import "@/styles/image-box.css";
 import { useMediaQuery } from "@mantine/hooks";

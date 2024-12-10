@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 const SelectTheme = () => {
   const { theme, changeTheme } = useImageBox();
   console.log("theme", theme);

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import ThemeSwticher from "./ThemeSwticher";
-import AboutDialog from "./about-dialog";
+import AboutDialog from "./AboutDialog";
 import Logo from "./Logo";
 
 const Header = () => {

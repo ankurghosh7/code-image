@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
-import ImageBox from "@/components/ImageBox";
-import ImageBoxControls from "@/components/ImageBoxControls";
-import { CodeBoxProvider } from "@/providers/code-box";
-import { ImageBoxProvider } from "@/providers/image-box";
+import ImageBox from "@/components/CodeImage";
+import ImageBoxControls from "@/components/CodeImageToolbar";
+import { CodeBoxProvider } from "@/services/code-editor.provider";
+import { ImageBoxProvider } from "@/services/code-image.provider";
 import CustomThemePopup from "@/components/ui/custom-theme-popup";
 
 export default function Home() {

@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 
 export const BrandTagSwticher = () => {
   const { ToggleWatermark, watermark } = useImageBox();

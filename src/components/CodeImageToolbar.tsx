@@ -7,8 +7,8 @@ import SelectPadding from "./ui/select-padding";
 import SelectTheme from "./ui/select-theme";
 import ModeSwticher from "./ui/mode-swticher";
 
-import MoreSettingDialog from "./MoreSettingDialog";
-import { useImageBox } from "@/providers/image-box";
+import MoreSettingDialog from "./CodeImageSettingsDialog";
+import { useImageBox } from "@/services/code-image.provider";
 
 const ImageBoxControls = () => {
   const { CaptureImage } = useImageBox();

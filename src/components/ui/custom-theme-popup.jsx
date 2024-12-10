@@ -1,5 +1,5 @@
 "use client";
-import { useImageBox } from "@/providers/image-box";
+import { useImageBox } from "@/services/code-image.provider";
 import React from "react";
 
 const CustomThemePopup = () => {
