@@ -27,9 +27,9 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   // theme state
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
-  const toggleTheme = () => {
+  function toggleTheme() {
     setTheme(theme === "light" ? "dark" : "light");
-  };
+  }
 
   useEffect(() => {
     if (!ISSERVER) {
@@ -58,7 +58,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   }, [theme, ISSERVER]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

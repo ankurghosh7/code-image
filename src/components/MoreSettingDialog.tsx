@@ -30,7 +30,7 @@ const MoreSettingDialog = () => {
     <Popover>
       <PopoverTrigger asChild>
         <button
-          className="control-trigger flex justify-center items-center gap-2 group [&:nth-child(3)]:[&_span]:data-[state=open]:-translate-x-24"
+          className="control-trigger flex justify-center items-center gap-2 group [&:nth-child(3)]:[&_span]:data-[state=open]:-translate-x-24 shrink-0"
           aria-label="Settings"
         >
           <span className="text-sm">More</span>

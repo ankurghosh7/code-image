@@ -7,13 +7,13 @@ import SelectPadding from "./ui/select-padding";
 import SelectTheme from "./ui/select-theme";
 import ModeSwticher from "./ui/mode-swticher";
 
-import MoreSettingDialog from "./more-setting-dialog";
+import MoreSettingDialog from "./MoreSettingDialog";
 import { useImageBox } from "@/providers/image-box";
 
 const ImageBoxControls = () => {
   const { CaptureImage } = useImageBox();
   return (
-    <div className="w-auto bg-gray-400 dark:bg-zinc-800 rounded-b-lg flex gap-4 items-end justify-center px-10 py-5 absolute top-0 left-1/2 -translate-x-1/2 z-10">
+    <div className="flex w-full md:w-auto bg-gray-400 dark:bg-zinc-800 md:rounded-b-lg gap-4 items-center md:items-end justify-start md:justify-center px-4 md:px-10 py-2 md:py-5 md:absolute md:top-0 md:left-1/2 md:-translate-x-1/2 z-10 overflow-x-scroll md:overflow-hidden">
       {/* select theme */}
       <div className="options-label-weapper">
         <span className="options-label ">Theme</span>
@@ -35,7 +35,7 @@ const ImageBoxControls = () => {
       </div>
 
       <MoreSettingDialog />
-      <button
+      {/* <button
         className="relative inline-block group mb-1 "
         onClick={CaptureImage}
       >
@@ -51,7 +51,7 @@ const ImageBoxControls = () => {
           className="absolute bottom-0 right-0 w-full h-7 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-orange-600 rounded-lg group-hover:mb-0 group-hover:mr-0"
           data-rounded="rounded-lg"
         ></span>
-      </button>
+      </button> */}
     </div>
   );
 };

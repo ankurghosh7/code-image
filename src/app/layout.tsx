@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
 
 const geistSans = localFont({
@@ -28,10 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} antialiased min-h-screen max-w-screen-2xl mx-auto`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
-          {children}
+          <main className="min-h-[calc(100vh-100px)]">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

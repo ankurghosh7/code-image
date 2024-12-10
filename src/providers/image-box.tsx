@@ -29,6 +29,8 @@ interface ImageBoxContextProps {
   ToggleWatermark(tag: boolean): void;
   watermarkPosition: WatermarkPosition;
   changeWatermarkPosition(position: string): void;
+  showCustomThemePopup: boolean;
+  toggleShowCustomThemePopup: (v: boolean) => void;
 }
 
 interface ImageBoxProviderProps {
@@ -59,10 +61,25 @@ export function ImageBoxProvider({ children }: ImageBoxProviderProps) {
   const [watermarkPosition, setWatermarkPosition] = useState<WatermarkPosition>(
     defaultBrandTagPosition
   );
+  const [showCustomThemePopup, setShowCustomThemePopup] =
+    useState<boolean>(false);
+  function toggleShowCustomThemePopup(v: boolean) {
+    setShowCustomThemePopup(v);
+  }
+
   const changeTheme = (theme: string) => {
     if (theme === defaultTheme.name) {
       setTheme(findTheme(theme));
       removeParams("t", SetSearchParams);
+    }
+    if (theme === "custom") {
+      setToUrl("t", theme, SetSearchParams);
+      setTheme({
+        name: "#4158D0FFFB7D",
+        deg: 0,
+        color: ["#4158D0", "#FFFB7D"],
+        dropColor: "#FFFB7D",
+      });
     }
     setToUrl("t", theme, SetSearchParams);
     setTheme(findTheme(theme));
@@ -162,6 +179,8 @@ export function ImageBoxProvider({ children }: ImageBoxProviderProps) {
         ToggleWatermark,
         watermarkPosition,
         changeWatermarkPosition,
+        showCustomThemePopup,
+        toggleShowCustomThemePopup,
       }}
     >
       {children}
