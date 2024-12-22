@@ -17,7 +17,11 @@ const ThemeSwticher = () => {
           "w-fit p-2 rounded-full dark:bg-zinc-600 bg-zinc-300 text-xs sm:text-sm md:text-base"
         )}
       >
-        {theme === "light" ? <IoMoon /> : <IoSunny />}
+        {theme === "light" ? (
+          <IoMoon className="size-5" />
+        ) : (
+          <IoSunny className="size-5" />
+        )}
       </button>
     </>
   );

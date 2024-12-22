@@ -3,21 +3,32 @@ import React from "react";
 import Link from "next/link";
 import ThemeSwticher from "./ThemeSwticher";
 import AboutDialog from "./AboutDialog";
-import Logo from "./Logo";
+import Image from "next/image";
+import { MdOutlineSaveAlt } from "react-icons/md";
+import MobileMenu from "@/components/MobileMenu";
 
 const Header = () => {
   return (
-    <header className="w-full xl:px-20 px-4">
-      <div className=" h-16 grid grid-cols-[90px_1fr_110px] md:grid-cols-[auto_1fr_auto] items-center">
-        <Link href="/" className="w-fit">
-          <div className="flex items-center gap-x-0.5 justify-center bg-none dark:bg-gradient-to-r dark:from-white/20 dark:to-blue-400/20 rounded-md">
-            <Logo />
-          </div>
+    <header className="w-full ">
+      <div className="w-full py-4 flex justify-between items-center">
+        <Link href={"/"}>
+          <Image
+            src="/logo.svg"
+            alt="Code Image"
+            width={150}
+            height={50}
+            className="cursor-pointer w-28"
+          />
         </Link>
-        <div></div>
-        <div className="w-full flex justify-end gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <AboutDialog />
           <ThemeSwticher />
+        </div>
+        <div className="flex lg:hidden items-center gap-4">
+          <button className="p-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+            <MdOutlineSaveAlt className="size-5" />
+          </button>
+          <MobileMenu />
         </div>
       </div>
     </header>

@@ -13,9 +13,8 @@ const AboutDialog = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="flex items-center justify-center gap-1 py-1 px-2 text-xs sm:text-sm md:text-base bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-md transition-colors">
-          <span className="hidden invisible md:visible md:block">About</span>
-          <AiOutlineInfoCircle className="size-3 md:size-5" />
+        <button className="p-2 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full transition-colors">
+          <AiOutlineInfoCircle className="size-5" />
         </button>
       </DialogTrigger>
       <DialogContent className="">
