@@ -4,8 +4,9 @@ import Link from "next/link";
 import ThemeSwticher from "./ThemeSwticher";
 import AboutDialog from "./AboutDialog";
 import Image from "next/image";
-import { MdOutlineSaveAlt } from "react-icons/md";
 import MobileMenu from "@/components/MobileMenu";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { MobileImageSaveBtn } from "./ImageSaveBtn";
 
 const Header = () => {
   return (
@@ -21,13 +22,17 @@ const Header = () => {
           />
         </Link>
         <div className="hidden lg:flex items-center gap-4">
-          <AboutDialog />
+          <AboutDialog
+            button={
+              <button className="p-2 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full transition-colors">
+                <AiOutlineInfoCircle className="size-5" />
+              </button>
+            }
+          />
           <ThemeSwticher />
         </div>
         <div className="flex lg:hidden items-center gap-4">
-          <button className="p-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-            <MdOutlineSaveAlt className="size-5" />
-          </button>
+          <MobileImageSaveBtn />
           <MobileMenu />
         </div>
       </div>

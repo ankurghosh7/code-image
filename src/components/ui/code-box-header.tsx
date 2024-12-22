@@ -1,6 +1,6 @@
 import React from "react";
 import WindowControlBtns from "./window-control-btns";
-import { useCodeBox } from "@/services/code-editor.provider";
+import { useCodeBox } from "@/services/editor.provider";
 
 const CodeBoxHeader = () => {
   const { showBoxTitle, showControlTheme } = useCodeBox();

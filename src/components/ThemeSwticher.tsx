@@ -10,20 +10,18 @@ const ThemeSwticher = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <>
-      <button
-        onClick={toggleTheme}
-        className={cn(
-          "w-fit p-2 rounded-full dark:bg-zinc-600 bg-zinc-300 text-xs sm:text-sm md:text-base"
-        )}
-      >
-        {theme === "light" ? (
-          <IoMoon className="size-5" />
-        ) : (
-          <IoSunny className="size-5" />
-        )}
-      </button>
-    </>
+    <button
+      onClick={toggleTheme}
+      className={cn(
+        "w-fit p-2 rounded-full dark:bg-zinc-600 bg-zinc-300 text-xs sm:text-sm md:text-base"
+      )}
+    >
+      {theme === "light" ? (
+        <IoMoon className="size-5" />
+      ) : (
+        <IoSunny className="size-5" />
+      )}
+    </button>
   );
 };
 

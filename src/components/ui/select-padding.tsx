@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -7,7 +8,7 @@ import {
 } from "@/components/ui/select";
 import { paddings } from "@/constants";
 import React from "react";
-import { useImageBox } from "@/services/code-image.provider";
+import { useImageBox } from "@/services/image.provider";
 
 const SelectPadding = () => {
   const { padding, chnagePadding } = useImageBox();

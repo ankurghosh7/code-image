@@ -7,7 +7,7 @@ import React from "react";
 import { defaultLogos } from "@/constants";
 import { LogoType } from "@/types";
 
-export default function BrandPopover() {
+export default function WatermarkPopover() {
   const [openPopup, setOpenPopup] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState<string>("");
   const [selectedLogo, setSelectedLogo] = React.useState<LogoType | string>(

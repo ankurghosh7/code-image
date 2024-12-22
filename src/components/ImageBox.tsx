@@ -1,15 +1,14 @@
 "use client";
-import { useCodeBox } from "@/services/code-editor.provider";
-import { cn } from "@/utils/cn";
-import { filterColor } from "@/utils/theme";
 import React, { useEffect, useState } from "react";
-import CodeBox from "./CodeEditor";
-
-import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
-import BrandPopover from "./ui/brand-popover";
-import { useImageBox } from "@/services/code-image.provider";
+import "@/styles/code-editor.css";
+import { cn } from "@/utils/cn";
 import CodeBoxHeader from "./ui/code-box-header";
-import "@/styles/image-box.css";
+import CodeBox from "./EditorBox";
+import Watermark from "./Watermark";
+import { useCodeBox } from "@/services/editor.provider";
+import { filterColor } from "@/utils/theme";
+import { LeftResizeBtn, RightResizeBtn } from "./ui/code-image-resize-btns";
+import { useImageBox } from "@/services/image.provider";
 import { useMediaQuery } from "@mantine/hooks";
 
 const ImageBox = () => {
@@ -22,22 +21,22 @@ const ImageBox = () => {
     backgroundOpacity,
   } = useCodeBox();
 
-  const { canvasRef, theme, padding, watermark, watermarkPosition } =
-    useImageBox();
+  const { canvasRef, theme, padding } = useImageBox();
+
+  // Responsive resizing
   const isMobile = useMediaQuery("(max-width: 768px)", true, {
     getInitialValueInEffect: false,
   });
+  // Minimum and maximum width for the resizable box
   const MIN_WIDTH = isMobile ? 100 : 520;
   const MAX_WIDTH = 920;
 
+  // State to track the width of the resizable box
   const [width, setWidth] = useState(MIN_WIDTH); // Initial width
   const [isDragging, setIsDragging] = useState(false); // To track if dragging is happening
   const [dragDirection, setDragDirection] = useState<"left" | "right" | null>(
     null
   ); // Direction of drag
-  const [inputBrandTagValue, setInputBrandTagValue] = useState<string>("");
-
-  const inputWidth = `${Math.max(40, 20 + inputBrandTagValue.length * 7)}px`; // Adjust the multiplier as needed
 
   // Handle mouse down event when starting the drag
   const handleMouseDown = (direction: "left" | "right") => {
@@ -79,9 +78,6 @@ const ImageBox = () => {
     if (isDragging) {
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
-    } else {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
     }
 
     // Cleanup function to remove event listeners when component unmounts or dragging stops
@@ -93,19 +89,17 @@ const ImageBox = () => {
 
   return (
     <div
-      className="resizable-box relative select-none drop-shadow-[0_25px_25px_rgba(0,0,0,0.25)]"
+      className="resizable-box relative select-none drop-shadow-[0_25px_25px_rgba(0,0,0,0.25)] w-full lg:w-auto"
       style={{
         filter: `drop-shadow(0 20px 25px ${theme.dropColor}40)`,
       }}
     >
       <LeftResizeBtn onMouseDown={() => handleMouseDown("left")} />
-
       <RightResizeBtn onMouseDown={() => handleMouseDown("right")} />
 
       <div
         className={cn(
-          "rounded-lg h-auto min-w-full md:min-w-[520px] max-w-[920px] relative ",
-          {}
+          "rounded-lg h-auto min-w-full md:min-w-[520px] max-w-[920px] relative "
         )}
         style={{
           background: filterColor(theme.color, theme.deg),
@@ -128,7 +122,6 @@ const ImageBox = () => {
         >
           <div className="w-full h-full relative z-10 space-y-2">
             <CodeBoxHeader />
-
             <CodeBox
               code={defaultValues.defaultCode}
               language={la.value}
@@ -137,29 +130,7 @@ const ImageBox = () => {
               mode={mode}
             />
           </div>
-        </div>
-        <div
-          className={cn("flex w-full absolute bottom-3 left-0 px-5", {
-            "justify-center": watermarkPosition === "center",
-            "justify-end": watermarkPosition === "right",
-            "justify-start": watermarkPosition === "left",
-          })}
-        >
-          <div
-            className={cn("flex gap-[2px] items-stretch min-w-24 max-w-full", {
-              "hidden invisible opacity-0": !watermark,
-            })}
-          >
-            <BrandPopover />
-            <input
-              id="brandInput"
-              className="flex-1 bg-transparent border-none outline-none focus:outline-none text-sm min-w-0  text-black placeholder:text-black font-medium transition-all duration-300 ease-in-out"
-              placeholder="watermark"
-              value={inputBrandTagValue}
-              style={{ width: inputWidth }}
-              onChange={(e) => setInputBrandTagValue(e.target.value)}
-            />
-          </div>
+          <Watermark />
         </div>
       </div>
     </div>

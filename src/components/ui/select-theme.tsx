@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import * as RSelect from "@radix-ui/react-select";
 
@@ -11,7 +12,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
-import { useImageBox } from "@/services/code-image.provider";
+import { useImageBox } from "@/services/image.provider";
 const SelectTheme = () => {
   const { theme, changeTheme } = useImageBox();
   console.log("theme", theme);

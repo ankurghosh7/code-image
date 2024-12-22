@@ -1,12 +1,12 @@
-import { CodeBoxProvider } from "@/services/code-editor.provider";
-import { ImageBoxProvider } from "@/services/code-image.provider";
+import { CodeBoxProvider } from "@/services/editor.provider";
+import { ImageBoxProvider } from "@/services/image.provider";
 import { ThemeProvider } from "next-themes";
 import React from "react";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme="light">
+      <ThemeProvider attribute="class" defaultTheme="dark">
         <ImageBoxProvider>
           <CodeBoxProvider>{children}</CodeBoxProvider>
         </ImageBoxProvider>

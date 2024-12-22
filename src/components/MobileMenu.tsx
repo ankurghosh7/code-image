@@ -3,11 +3,13 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoMenu } from "react-icons/io5";
 import { cn } from "@/utils/cn";
+import AboutDialog from "./AboutDialog";
+import ThemeSwticher from "./ThemeSwticher";
 
 const menu = {
   open: {
     width: "280px",
-    height: "350px",
+    height: "250px",
     top: "-10px",
     right: "-10px",
     transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
@@ -42,7 +44,10 @@ export default function MobileMenu() {
 
       <motion.button
         className={cn(
-          "w-10 h-10 flex justify-center items-center rounded-full bg-transparent text-background relative z-10"
+          "w-10 h-10 flex justify-center items-center rounded-full bg-transparent text-background relative z-10",
+          {
+            "text-black": isActive,
+          }
         )}
         animate={{ backgroundColor: isActive ? "#f9f9f9" : "transparent" }}
         transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
@@ -55,6 +60,15 @@ export default function MobileMenu() {
           }}
         />
       </motion.button>
+
+      <button
+        className={cn("fixed top-0 left-0 -z-0 w-full h-screen", {
+          block: isActive,
+          hidden: !isActive,
+        })}
+        type="button"
+        onClick={() => setIsActive(false)}
+      />
     </div>
   );
 }
@@ -62,43 +76,66 @@ export default function MobileMenu() {
 function Nav() {
   return (
     <div className={"flex flex-col justify-between p-6 "}>
-      <div className={"flex gap-3 flex-col"}>
-        {links.map((link, i) => {
-          const { title } = link;
-          return (
-            <div
-              key={`b_${i}`}
-              className={"perspective-[120px] [perspective-origin:bottom]	"}
+      <div className={"flex gap-3 flex-col py-10"}>
+        <div className={"perspective-[120px] [perspective-origin:bottom]	"}>
+          <motion.div
+            custom={1}
+            variants={perspective}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            <AboutDialog
+              button={
+                <button className="text-2xl text-white font-medium">
+                  About
+                </button>
+              }
+            />
+          </motion.div>
+          <motion.div
+            custom={2}
+            variants={perspective}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            <a
+              href="https://github.com/ankurghosh7/code-image/issues/new"
+              className="text-2xl text-white font-medium"
+              target="_blank"
             >
-              <motion.div
-                custom={i}
-                variants={perspective}
-                initial="initial"
-                animate="enter"
-                exit="exit"
-              >
-                <a>{title}</a>
-              </motion.div>
-            </div>
-          );
-        })}
+              Repot bug!
+            </a>
+          </motion.div>
+          <motion.div
+            custom={2}
+            variants={perspective}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            <a
+              href="https://www.ankurghosh.xyz/#contact"
+              className="text-2xl text-white font-medium"
+              target="_blank"
+            >
+              Contact
+            </a>
+          </motion.div>
+        </div>
       </div>
       <motion.div className={"flex flex-wrap"}>
-        {footerLinks.map((link, i) => {
-          const { title } = link;
-          return (
-            <motion.a
-              variants={slideIn}
-              custom={i}
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              key={`f_${i}`}
-            >
-              {title}
-            </motion.a>
-          );
-        })}
+        <motion.div
+          variants={slideIn}
+          custom={1}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          // key={`f_${i}`}
+        >
+          <ThemeSwticher />
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -148,45 +185,3 @@ const slideIn = {
     transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
   },
 };
-
-const links = [
-  {
-    title: "Projects",
-    href: "/",
-  },
-  {
-    title: "Agency",
-    href: "/",
-  },
-  {
-    title: "Expertise",
-    href: "/",
-  },
-  {
-    title: "Careers",
-    href: "/",
-  },
-  {
-    title: "Contact",
-    href: "/",
-  },
-];
-
-const footerLinks = [
-  {
-    title: "Facebook",
-    href: "/",
-  },
-  {
-    title: "LinkedIn",
-    href: "/",
-  },
-  {
-    title: "Instagram",
-    href: "/",
-  },
-  {
-    title: "Twitter",
-    href: "/",
-  },
-];
