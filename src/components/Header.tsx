@@ -3,21 +3,37 @@ import React from "react";
 import Link from "next/link";
 import ThemeSwticher from "./ThemeSwticher";
 import AboutDialog from "./AboutDialog";
-import Logo from "./Logo";
+import Image from "next/image";
+import MobileMenu from "@/components/MobileMenu";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { MobileImageSaveBtn } from "./ImageSaveBtn";
 
 const Header = () => {
   return (
-    <header className="w-full xl:px-20 px-4">
-      <div className=" h-16 grid grid-cols-[90px_1fr_110px] md:grid-cols-[auto_1fr_auto] items-center">
-        <Link href="/" className="w-fit">
-          <div className="flex items-center gap-x-0.5 justify-center bg-none dark:bg-gradient-to-r dark:from-white/20 dark:to-blue-400/20 rounded-md">
-            <Logo />
-          </div>
+    <header className="w-full ">
+      <div className="w-full py-4 flex justify-between items-center">
+        <Link href={"/"}>
+          <Image
+            src="/logo.svg"
+            alt="Code Image"
+            width={150}
+            height={50}
+            className="cursor-pointer w-28"
+          />
         </Link>
-        <div></div>
-        <div className="w-full flex justify-end gap-4">
-          <AboutDialog />
+        <div className="hidden lg:flex items-center gap-4">
+          <AboutDialog
+            button={
+              <button className="p-2 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full transition-colors">
+                <AiOutlineInfoCircle className="size-5" />
+              </button>
+            }
+          />
           <ThemeSwticher />
+        </div>
+        <div className="flex lg:hidden items-center gap-4">
+          <MobileImageSaveBtn />
+          <MobileMenu />
         </div>
       </div>
     </header>

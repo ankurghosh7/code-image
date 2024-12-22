@@ -1,4 +1,4 @@
-import { useCodeBox } from "@/services/code-editor.provider";
+import { useCodeBox } from "@/services/editor.provider";
 import { cn } from "@/utils/cn";
 import React from "react";
 

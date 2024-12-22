@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Dialog,
@@ -7,17 +8,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 
-const AboutDialog = () => {
+const AboutDialog = ({ button }: { button: React.ReactNode }) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <button className="flex items-center justify-center gap-1 py-1 px-2 text-xs sm:text-sm md:text-base bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-md transition-colors">
-          <span className="hidden invisible md:visible md:block">About</span>
-          <AiOutlineInfoCircle className="size-3 md:size-5" />
-        </button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{button}</DialogTrigger>
       <DialogContent className="">
         <DialogHeader>
           <DialogTitle>About</DialogTitle>
@@ -27,7 +22,7 @@ const AboutDialog = () => {
             Working on feature and shortcut keys
           </p>
         </div>
-        <DialogFooter>
+        <DialogFooter className="hidden lg:block">
           <div className="mt-3 flex items-center justify-center">
             <p className="text-sm">
               Want more features? or{" "}

@@ -1,4 +1,5 @@
-import { useCodeBox } from "@/services/code-editor.provider";
+"use client";
+import { useCodeBox } from "@/services/editor.provider";
 import React from "react";
 
 const ModeSwticher = () => {

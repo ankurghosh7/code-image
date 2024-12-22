@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Popover,
@@ -11,7 +12,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import ControlThemeRadio from "./ui/control-theme-radio";
 import FormatTabs from "./ui/editor-tabs";
 import { BrandTagSwticher, SelectBrandTagPosition } from "./ui/watermark";
-import { useCodeBox } from "@/services/code-editor.provider";
+import { useCodeBox } from "@/services/editor.provider";
 import { Slider } from "@/components/ui/range";
 
 const MoreSettingDialog = () => {
