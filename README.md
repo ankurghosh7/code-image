@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://github.com/ankurghosh7/code-image">
-<img src="public/code-image-logo.svg" alt="Logo" width="" height="80">
+<img src="public/logo.svg" alt="Logo" width="" height="80">
 </a>
 <h3 align="center">codeimage.ankurghosh.xyz</h3>
 <p align="center">
