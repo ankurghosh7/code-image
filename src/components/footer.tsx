@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="px-4 text-center text-xs md:text-sm text-muted-foreground min-h-16 w-full bg-gray-400 text-black dark:text-white dark:bg-zinc-800 flex justify-center md:justify-end items-center xl:px-20 font-medium">
       <div>
         <p className="text-black dark:text-white">
-          Copyright © {new Date().getFullYear()} - All right reserved by{" "}
+          Copyright © 2024 - All right reserved by{" "}
           <Link
             href={"https://www.ankurghosh.xyz/copy-right"}
             className="underline underline-offset-1 text-blue-500 transition-colors duration-300"
@@ -16,20 +16,6 @@ const Footer = () => {
           </Link>
         </p>
       </div>
-      {/* <div className="flex items-center gap-4">
-        <Link
-          href={"/privacy"}
-          className="hover:text-blue-500 transition-colors duration-300"
-        >
-          Privacy Policy
-        </Link>
-        <Link
-          href={"/terms"}
-          className="hover:text-blue-500 transition-colors duration-300"
-        >
-          Terms & Conditions
-        </Link>
-      </div> */}
     </footer>
   );
 };
