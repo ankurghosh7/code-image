@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "res.cloudinary.com",
+        port: "",
       },
     ],
   },
-  reactStrictMode: false,
 };
 
 export default nextConfig;

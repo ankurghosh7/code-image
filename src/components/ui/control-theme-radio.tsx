@@ -2,6 +2,7 @@ import React from "react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import Image from "next/image";
 import { FaCircle as Circle } from "react-icons/fa6";
+import { controlThemes } from "@/constants";
 
 const ControlThemeRadio = ({
   onChange,
@@ -17,54 +18,21 @@ const ControlThemeRadio = ({
       aria-label="Control Theme"
       onValueChange={onChange}
     >
-      <ControlThemeRadioBtn
-        value="mac"
-        className="w-20 h-16 overflow-hidden shrink-0"
-      >
-        <Image
-          alt="mac theme"
-          src={"/mac.png"}
-          className="w-full h-full"
-          height={100}
-          width={100}
-        />
-      </ControlThemeRadioBtn>
-      <ControlThemeRadioBtn
-        value="fill"
-        className="w-20 h-16 overflow-hidden shrink-0"
-      >
-        <Image
-          alt="fill theme"
-          src={"/fill.png"}
-          className="w-full h-full"
-          height={100}
-          width={100}
-        />
-      </ControlThemeRadioBtn>
-      <ControlThemeRadioBtn
-        value="outline-fill"
-        className="w-20 h-16 overflow-hidden shrink-0"
-      >
-        <Image
-          alt="outline fill theme"
-          src={"/outline-fill.png"}
-          className="w-full h-full"
-          height={100}
-          width={100}
-        />
-      </ControlThemeRadioBtn>
-      <ControlThemeRadioBtn
-        value="outline"
-        className="w-20 h-16 overflow-hidden shrink-0"
-      >
-        <Image
-          alt="outline theme"
-          src={"/outline.png"}
-          className="w-full h-full"
-          height={100}
-          width={100}
-        />
-      </ControlThemeRadioBtn>
+      {controlThemes.map((item, index) => (
+        <ControlThemeRadioBtn
+          value={item.name}
+          className="w-20 h-16 overflow-hidden shrink-0"
+          key={index}
+        >
+          <Image
+            alt={`${item.name} theme`}
+            src={item.imageUrl}
+            className="w-full h-full"
+            height={100}
+            width={100}
+          />
+        </ControlThemeRadioBtn>
+      ))}
     </RadioGroup.Root>
   );
 };
