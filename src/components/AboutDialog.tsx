@@ -27,7 +27,7 @@ const AboutDialog = ({ button }: { button: React.ReactNode }) => {
             <p className="text-sm">
               Want more features? or{" "}
               <a
-                href="#"
+                href="https://github.com/ankurghosh7/code-image/issues/new"
                 className="text-blue-500 hover:underline"
                 target="_blank"
               >
