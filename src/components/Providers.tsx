@@ -1,3 +1,4 @@
+"use client";
 import { CodeBoxProvider } from "@/services/editor.provider";
 import { ImageBoxProvider } from "@/services/image.provider";
 import { ThemeProvider } from "next-themes";
