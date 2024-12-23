@@ -33,41 +33,6 @@ This project was built with the following technologies:
 
 ---
 
-## 📁 Project Structure
-
-```sh
-└── code-image/
-    ├── public
-    │   └── code-image-logo.svg
-    ├── src
-    │   ├── app
-    │   ├── components
-    │   │   ├── CodeEditor.tsx
-    │   │   ├── CodeImage.tsx
-    │   │   ├── CodeImagePreview.tsx
-    │   │   ├── CodeImageSettingsDialog.tsx
-    │   │   └── CodeImageToolbar.tsx
-    ├── services
-    │   ├── code-editor.provider.ts
-    │   └── code-image.provider.ts
-    ├── styles
-    │   └── code-editor.css
-    ├── types
-    │   └── index.d.ts
-    ├── utils
-    ├── constants.ts
-    ├── .gitignore
-    ├── .eslintrc.json
-    ├── next.config.js
-    ├── LICENSE
-    ├── README.md
-    ├── package-lock.json
-    ├── package.json
-    ├── postcss.config.mjs
-    ├── tailwind.config.js
-    └── tsconfig.json
-```
-
 ## 🚀 Getting Started
 
 ### ☑️ Prerequisites
