@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Provider from "@/components/Providers";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,13 +32,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased min-h-screen max-w-screen-2xl mx-auto`}
       >
-        <Provider>
-          <div className="w-full h-full px-4 sm:px-8 md:px-14 xl:px-20 2xl:px-28">
-            <Header />
-            <main className="min-h-[calc(100vh-135px)]">{children}</main>
-          </div>
-          <Footer />
-        </Provider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Provider>
+            <div className="w-full h-full px-4 sm:px-8 md:px-14 xl:px-20 2xl:px-28">
+              <Header />
+              <main className="min-h-[calc(100vh-135px)]">{children}</main>
+            </div>
+            <Footer />
+          </Provider>
+        </Suspense>
       </body>
     </html>
   );

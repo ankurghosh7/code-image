@@ -2,16 +2,12 @@ import React, { Suspense } from "react";
 import ImageBoxControls from "@/components/Toolbar";
 import ImageBox from "@/components/ImageBox";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <Suspense
-      fallback={
-        <div>
-          <h1>Loading...</h1>
-        </div>
-      }
-    >
-      <ImageBoxControls />
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ImageBoxControls />
+      </Suspense>
       <div className="w-full space-y-4 mt-14 bg-transparent h-full">
         <div className="flex justify-start md:justify-center bg-transparent relative">
           <Suspense
@@ -25,6 +21,6 @@ export default function Home() {
           </Suspense>
         </div>
       </div>
-    </Suspense>
+    </div>
   );
 }
