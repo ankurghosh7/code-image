@@ -92,18 +92,22 @@ export const defaultBrandTagPosition = "right";
 export const controlThemes = [
   {
     name: "mac",
-    imageUrl: "/images/mac.png",
+    imageUrl:
+      "https://res.cloudinary.com/dx9lhxxaa/image/upload/v1734969954/mac_qtitev.png",
   },
   {
     name: "fill",
-    imageUrl: "/images/fill.png",
+    imageUrl:
+      "https://res.cloudinary.com/dx9lhxxaa/image/upload/v1734969954/fill_iqyarr.png",
   },
   {
     name: "outline",
-    imageUrl: "/images/outline.png",
+    imageUrl:
+      "https://res.cloudinary.com/dx9lhxxaa/image/upload/v1734969955/outline_rpxa0h.png",
   },
   {
     name: "outline fill",
-    imageUrl: "/images/outline-fill.png",
+    imageUrl:
+      "https://res.cloudinary.com/dx9lhxxaa/image/upload/v1734969954/outline-fill_jkqxvu.png",
   },
 ];
