@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import localFont from "next/font/local";
 import Provider from "@/components/Providers";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 const geistSans = localFont({
@@ -33,7 +33,7 @@ export default function RootLayout({
               <Header />
               <main className="min-h-[calc(100vh-135px)]">{children}</main>
             </div>
-            <Footer />
+{/*             <Footer /> */}
           </Provider>
         </Suspense>
       </body>
